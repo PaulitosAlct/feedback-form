@@ -6,7 +6,8 @@ const FeedbackForm = () => {
     const [formData, setFormData] = useState ( {
         name: "",
         email: "",
-        feedback: ""
+        feedback: "",
+        rating: "" //New state for rating
     });
 
     const handleChange = (event) => {
@@ -23,6 +24,7 @@ const FeedbackForm = () => {
         Name: ${formData.name}
         Email: ${formData.email}
         Feedback: ${formData.feedback}
+        Rating: ${formData.rating}
         `;
         const isConfirmed = window.confirm(`Please confirm your details:\n\n${confirmationMessage}`);
         if (isConfirmed) {
@@ -30,7 +32,8 @@ const FeedbackForm = () => {
             setFormData ({
                 name: "",
                 email: "",
-                feedback: ""
+                feedback: "",
+                rating: ""
             });
             alert(`Thank you for your valuable feedback!`);
         }
@@ -48,7 +51,7 @@ const FeedbackForm = () => {
             type="text"
             name="name"
             placeholder="Your Name"
-            value={formData.n}
+            value={formData.name}
             onChange={handleChange}
         />
         <input
@@ -64,6 +67,24 @@ const FeedbackForm = () => {
             value={formData.feedback}
             onChange={handleChange}
         ></textarea>
+        <div className="ratings">
+            Rate us:
+            <label>
+            <input type="radio" name="rating" value="1" onChange={handleChange}/>1
+            </label>
+            <label>
+            <input type="radio" name="rating" value="2" onChange={handleChange}/>2
+            </label>
+            <label>
+            <input type="radio" name="rating" value="3" onChange={handleChange}/>3
+            </label>
+            <label>
+            <input type="radio" name="rating" value="4" onChange={handleChange}/>4
+            </label>
+            <label>
+            <input type="radio" name="rating" value="5" onChange={handleChange}/>5
+            </label>
+        </div>
         <button type="submit">Submit Feedback</button>
       </form>
     </>

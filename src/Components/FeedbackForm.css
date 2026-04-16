@@ -62,4 +62,14 @@ nav{
       width: 90%;
     }
   }
-  
+ 
+ .ratings {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+ } 
+
+ input[type="radio"] {
+    margin-right: 8px;
+    gap: 10px;
+  }
